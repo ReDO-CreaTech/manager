@@ -48,7 +48,7 @@
 
 .nav-element-container {
     font-size: 18px;
-    text-align: left;
+    text-align: center;
     cursor: pointer;
 }
 
@@ -61,7 +61,7 @@
 
 .nav-element-container a:hover {
     text-shadow: 3px 3px 4px black;
-    color: #FFA000;
+    color: #fee6bc;
 }
 
 .nav-element-container ul {
