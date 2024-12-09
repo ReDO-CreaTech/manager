@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: OpenSans, Roboto-Light;
+}
+
+@font-face {
+    font-family: OpenSans;
+    src: url(/asset/fonts/OpenSans.ttf);
+}
+
+@font-face {
+    font-family: Roboto-Light;
+    src: url(/asset/fonts/Roboto-Light.ttf);
+}
+
+.nav-container {
+    border: 1px solid;
+    max-width: 30%;
+    height: 50em;
+    align-items: center;
+    margin-bottom: auto;
+}
+
+.logo-container {
+    align-items: center;
+}
+
+.logo-container img {
+    width: 8em;
+    align-items: center;
+}
+
+.logo-container h1 {
+}
