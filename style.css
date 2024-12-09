@@ -78,3 +78,19 @@
 .nav-element-container li:hover {
     background-color: rgb(213, 211, 211);
 }
+
+.nav-footer {
+    margin-top: 140px ;
+    text-align: center;
+    font-size: 14px;
+    background-color: rgb(210, 209, 209);
+    height: 100rem;
+}
+
+.nav-footer h4 {
+    color: rgb(154, 154, 154);
+}
+
+.nav-footer p {
+    color: rgb(154, 154, 154);
+}
