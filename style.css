@@ -1,6 +1,9 @@
 * {
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
+    position: relative;
+    z-index: 1;
     font-family: OpenSans, Roboto-Light;
 }
 
@@ -23,12 +26,15 @@ body {
 
 /* Navbar Styles */
 .nav-container {
+    position: relative;
+    z-index: 10;
     width: 15em;
     height: 100vh;
     display: flex;
     flex-direction: column;
+    flex-shrink: 0;
     background-color: #eae9e9;
-    box-shadow: 3px 3px 8px black;
+    box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.6);
     justify-content: space-between; /* Align footer to the bottom */
 }
 
@@ -98,25 +104,34 @@ body {
 
 /* Dashboard Styles */
 .dashboard {
+    margin: 0;
+    position: relative;
+    z-index: 1;
     flex-grow: 1;
-    padding: 20px;
+    padding: 1em;
+    padding-left: 5em;
+    width: calc(100% - 15em);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
     background-color: #f9f9f9;
     overflow-y: auto; /* Enables scrolling for dashboard content */
-    border-left: 2px solid black;
+    border-left: none;
 }
 
 .dashboard-box {
-    height: 450px;
-    background-color: #ffffff;
-    border: 2px solid black;
+    height: 45vh;
+    background-color: #eae9e9;
     border-radius: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.6);
+}
+
+#dateTime {
+    background-color: #ffff;
+    box-shadow: none;
 }
 
 /* Responsive Design */
