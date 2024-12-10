@@ -14,31 +14,36 @@
     src: url(/asset/fonts/Roboto-Light.ttf);
 }
 
+/* Body Layout */
+body {
+    display: flex;
+    flex-direction: row;
+    height: 100vh; /* Full height of the viewport */
+}
+
+/* Navbar Styles */
 .nav-container {
-    width: 15em;;
+    width: 15em;
     height: 100vh;
     display: flex;
     flex-direction: column;
     background-color: #eae9e9;
     box-shadow: 3px 3px 8px black;
+    justify-content: space-between; /* Align footer to the bottom */
 }
 
 .logo-container img {
     width: 100px;
     height: 100px;
-    margin-left: 4.5em;
-    margin-bottom: 1px;
+    margin-left: 70px;
     cursor: pointer;
 }
 
 .logo-title {
     text-align: center;
-    padding-top: 0px;
-    cursor: pointer;
     color: #036ad1;
     text-shadow: 3px 3px 4px black;
-
-    transform: translateY(-36px);
+    transform: translateY(-86px);
     transition: 1s;
 }
 
@@ -50,13 +55,29 @@
     font-size: 18px;
     text-align: center;
     cursor: pointer;
+    transform: translateY(-106px);
+}
+
+.nav-element-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-element-container li {
+    padding: 15px 0;
+    transition: 0.5s;
+}
+
+.nav-element-container li:hover {
+    background-color: rgb(213, 211, 211);
 }
 
 .nav-element-container a {
     text-decoration: none;
     color: #00796B;
     font-weight: bold;
-    transition: .4s;
+    transition: 0.4s;
 }
 
 .nav-element-container a:hover {
@@ -64,33 +85,47 @@
     color: #fee6bc;
 }
 
-.nav-element-container ul {
-    list-style: none;
-    padding: 0;
-    margin: 0 2px 0 2px;
-}
-
-.nav-element-container li{
-    padding: 15px 0 15px 0;
-    transition: .5s;
-}
-
-.nav-element-container li:hover {
-    background-color: rgb(213, 211, 211);
-}
-
 .nav-footer {
-    margin-top: 140px ;
     text-align: center;
     font-size: 14px;
     background-color: rgb(210, 209, 209);
-    height: 100rem;
+    padding: 10px 0;
 }
 
-.nav-footer h4 {
+.nav-footer h4, .nav-footer p {
     color: rgb(154, 154, 154);
 }
 
-.nav-footer p {
-    color: rgb(154, 154, 154);
+/* Dashboard Styles */
+.dashboard {
+    flex-grow: 1;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    background-color: #f9f9f9;
+    overflow-y: auto; /* Enables scrolling for dashboard content */
+    border-left: 2px solid black;
+}
+
+.dashboard-box {
+    height: 450px;
+    background-color: #ffffff;
+    border: 2px solid black;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-container {
+        width: 30%; /* Increase navbar width on smaller screens */
+    }
+
+    .dashboard {
+        grid-template-columns: 1fr; /* Single-column layout for smaller screens */
+    }
 }
