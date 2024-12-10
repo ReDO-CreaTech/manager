@@ -49,7 +49,7 @@ body {
     text-align: center;
     color: #036ad1;
     text-shadow: 3px 3px 4px black;
-    transform: translateY(-86px);
+    transform: translateY(-56px);
     transition: 1s;
 }
 
@@ -58,10 +58,10 @@ body {
 }
 
 .nav-element-container {
-    font-size: 18px;
+    font-size: 15px;
     text-align: center;
     cursor: pointer;
-    transform: translateY(-106px);
+    transform: translateY(-56px);
 }
 
 .nav-element-container ul {
@@ -101,6 +101,67 @@ body {
 .nav-footer h4, .nav-footer p {
     color: rgb(154, 154, 154);
 }
+
+/* Toggle Dark and Light Mode */
+/* Default Light Mode */
+.dashboard.light-mode {
+    background-color: white;
+    color: #00796B; /* Text color for light mode */
+}
+
+/* Dark Mode */
+.dashboard.dark-mode {
+    background-color: #00796B;
+    color: white; /* Text color for dark mode */
+}
+
+/* Toggle Button Styling */
+.dark-mode-toggle {
+    text-align: center;
+    margin: 1em 0;
+}
+
+#darkModeBtn {
+    padding: 5px 10px;
+    background-color: #fff;
+    color: #00796b;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 7px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect */
+#darkModeBtn:hover {
+    background-color: #00796b;
+    color: #fff;
+    transform: scale(1.05); /* Optional effect for hover */
+}
+
+/* Dark mode active styles for the button */
+.dark-mode #darkModeBtn {
+    background-color: #00796b;
+    color: #fff;
+}
+
+.dark-mode #darkModeBtn:hover {
+    background-color: #00796b;
+    color: #fff;
+}
+
+/* Light mode active styles for the button */
+.light-mode #darkModeBtn {
+    background-color: #fff;
+    color: #00796b;
+}
+
+.light-mode #darkModeBtn:hover {
+    background-color: #00796b;
+    color: #fff;
+}
+
 
 /* Dashboard Styles */
 .dashboard {
