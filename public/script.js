@@ -105,14 +105,9 @@ window.onload = function() {
 
 
 //documentExpiring
-const documentData = [
-    { name: "Passport", expiryDate: "2024-12-15" },
-    { name: "Visa", expiryDate: "2024-12-12" },
-    { name: "Work Permit", expiryDate: "2025-01-01" },
-    { name: "Insurance", expiryDate: "2024-12-05" },
-];
-
+// Fetching document data dynamically from the table
 const documentExpiringContainer = document.querySelector("#documentExpiring .document-list");
+const documentsTableBody = document.querySelector("#documentsTable tbody");
 
 // Helper function to calculate days left
 function calculateDaysLeft(expiryDate) {
@@ -122,29 +117,79 @@ function calculateDaysLeft(expiryDate) {
     return Math.ceil(diffInTime / (1000 * 60 * 60 * 24)); // Convert milliseconds to days
 }
 
-// Render document items
-documentData.forEach((doc) => {
-    const daysLeft = calculateDaysLeft(doc.expiryDate);
+// Function to render expiring documents
+function renderExpiringDocuments() {
+    // Clear previous expiring documents
+    documentExpiringContainer.innerHTML = "";
 
-    // Determine the status class
-    let statusClass = "safe";
-    if (daysLeft <= 7 && daysLeft > 0) statusClass = "soon";
-    else if (daysLeft <= 0) statusClass = "expired";
+    // Iterate over table rows to check for expiration
+    const rows = documentsTableBody.querySelectorAll("tr");
+    rows.forEach((row) => {
+        const docTitle = row.querySelector("td:nth-child(1)").textContent; // Get title
+        const expiryDate = row.querySelector("td:nth-child(3)").textContent; // Get expiry date
 
-    // Create document item
-    const documentItem = document.createElement("div");
-    documentItem.className = "document-item";
+        const daysLeft = calculateDaysLeft(expiryDate);
 
-    documentItem.innerHTML = `
-        <div class="document-name">${doc.name}</div>
-        <div class="document-expiry">${doc.expiryDate}</div>
-        <div class="status-badge ${statusClass}">
-            ${daysLeft <= 0 ? "Expired" : `${daysLeft} days`}
-        </div>
+        // Determine the status class
+        let statusClass = "safe";
+        if (daysLeft <= 7 && daysLeft > 0) statusClass = "soon";
+        else if (daysLeft <= 0) statusClass = "expired";
+
+        // Only show expiring or expired documents
+        if (daysLeft <= 7) {
+            const documentItem = document.createElement("div");
+            documentItem.className = "document-item";
+
+            documentItem.innerHTML = `
+                <div class="document-name">${docTitle}</div>
+                <div class="document-expiry">${expiryDate}</div>
+                <div class="status-badge ${statusClass}">
+                    ${daysLeft <= 0 ? "Expired" : `${daysLeft} days`}
+                </div>
+            `;
+
+            documentExpiringContainer.appendChild(documentItem);
+        }
+    });
+}
+
+// Re-render expiring documents after uploading a new document
+document.getElementById("documentForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // Example: Add new document data to the table dynamically
+    const docTitle = document.getElementById("docTitle").value;
+    const docType = document.getElementById("docType").value;
+    const expirationDate = document.getElementById("expirationDate").value;
+
+    const newRow = documentsTableBody.insertRow();
+    newRow.innerHTML = `
+        <td>${docTitle}</td>
+        <td>${docType}</td>
+        <td>${expirationDate}</td>
+        <td><a href="#">Download</a></td>
+        <td><button class="delete-btn">Delete</button></td>
     `;
 
-    documentExpiringContainer.appendChild(documentItem);
+    // Clear the form after submission
+    this.reset();
+
+    // Re-render expiring documents
+    renderExpiringDocuments();
 });
+
+// Handle delete button functionality
+documentsTableBody.addEventListener("click", function (e) {
+    if (e.target.classList.contains("delete-btn")) {
+        const row = e.target.closest("tr");
+        row.remove();
+        renderExpiringDocuments();
+    }
+});
+
+// Initial render for any pre-existing documents
+renderExpiringDocuments();
+
  
 
 //calendar
