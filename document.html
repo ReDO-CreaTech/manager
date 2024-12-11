@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="document.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <title>Document Management</title>
+</head>
+<body>
+    <div class="nav-container">
+        <div class="logo-container">
+            <img src="/asset/octo-boss.png" alt="octo-boss">
+        </div>
+        <div class="logo-title">
+            <h1>OctoBoss</h1>
+        </div>    
+        
+        <div class="nav-element-container">
+                <ul>
+                    <li><a href="index.html">Dashboard</a></li>
+                    <li><a href="#">Document Management</a></li>
+                    <li><a href="#">Staff Management</a></li>
+                    <li><a href="#">Task and Training</a></li>
+                    <li><a href="#">Scheduling</a></li>
+                    <li><a href="#">Reports and Analytics</a></li>
+                    <li><a href="#">Settings</a></li>
+                </ul>
+
+        </div>
+
+        <div class="dark-mode-toggle">
+            <button id="darkModeBtn">Enable Dark Mode</button>
+        </div>
+        
+        <div class="nav-footer">
+            <br>
+            <h4>OctoBoss&reg</h4>
+            <p>All Rights Reserved 2024</p>
+        </div>
+    </div>
+
+    <!--Dashboard Content-->
+    <div class="dashboard">
+         <!-- Form to upload documents -->
+    <!-- Form to upload documents -->
+    <div class="form-container">
+        <h2>Upload Document</h2>
+        <form id="documentForm">
+            <label for="docTitle">Document Title:</label>
+            <input type="text" id="docTitle" name="docTitle" placeholder="Enter document title" required>
+            
+            <label for="docType">Document Type:</label>
+            <select id="docType" name="docType" required>
+                <option value="">Select Type</option>
+                <option value="Permit">Permit</option>
+                <option value="Visa">Visa</option>
+                <option value="Passport">Passport</option>
+                <option value="Certificate">Certificate</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label for="expirationDate">Expiration Date:</label>
+            <input type="date" id="expirationDate" name="expirationDate" required>
+            
+            <label for="uploadFile">Upload File:</label>
+            <input type="file" id="uploadFile" name="uploadFile" required>
+            
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+
+    <!-- Documents section -->
+    <div class="documents-container">
+        <div class="header-with-search">
+            <h2>Documents</h2>
+            <input type="text" id="searchInput" placeholder="Search documents...">
+        </div>
+        <table id="documentsTable">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Type</th>
+                    <th>Expiration Date</th>
+                    <th>File</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dynamic content will be injected here -->
+            </tbody>
+        </table>
+    </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="document.js"></script>
+    
+</body>
+</html>
